@@ -1,0 +1,81 @@
+<link rel="import" href="/bower_components/polymer/polymer.html">
+<link rel="import" href="/bower_components/google-signin/google-signin.html">
+<link rel="import" href="/bower_components/paper-card/paper-card.html">
+
+<dom-module id="my-googleWebComponents2">
+  <!-- Defines the element's style and local DOM -->
+  <template id="mainTemplate">
+    <style>
+      :host {
+        display: block;
+        padding: 16px;
+      }
+    </style>
+
+    <h1>Google Web Components 2</h1>
+
+    <!--<input value="{{user.name::input}}">-->
+
+    <google-signin id="googleSign" theme="dark" client-id="435996995493-q486on28dnnb6tm70snq8q2jb3cp2pt9.apps.googleusercontent.com" scopes="profile">
+    </google-signin>
+
+    <template  is="dom-repeat" items="{{welcomeUser}}"">
+      <br></br>
+      <paper-card heading="{{item.welcomeMessage}}"></paper-card>
+    </template>
+     
+  </template>
+  <!-- Creates the element's prototype and registers it -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+  <script>
+    Polymer({
+      is: 'my-googleWebComponents2',
+      listeners: {
+        //'dom-change': 'domElem',
+        'google-signout-attempted' : 'handleSignOut',
+        'google-signin-success' : 'handleSignin'
+      },/*
+      observers: [
+        'userNameChanged(user.name)'
+      ],
+      // Each method referenced in observers must be defined in
+      // element prototype. The argument to the method is the new value
+      // of the sub-property.
+      userNameChanged: function(name) {
+        console.log('new name: ' + name);
+      },
+      properties: {
+        user: {
+          type: Object,
+          value: function(){
+            return {};
+          }
+        }
+      },
+      ready: function(){
+        //console.log(this.localName + '#' + this.id + ' has local DOM initialized');
+      },
+      domElem: function(e){
+        //console.log(e);
+      },  
+      */
+      handleSignin: function(response) {
+        var curUser = gapi.auth2.getAuthInstance()['currentUser'].get();
+        //CREAMOS EL OBJETO QUE TENDRA DATOS DEL USUARIO QUE HA INICIADO LA SESION
+        var user = new Object();
+        user.userName = curUser.getBasicProfile().getName();
+        user.isAuth = true;
+        user.welcomeMessage = "Bienvenido " + user.userName + ". Has conseguido iniciar sesion!";
+        //AÑADIMOS EL OBJETO USUARIO CREADO AL ARRAY QUE UTILIZARÁ PARA DAR EL MENSAJE DE BIENVENIDA
+        this.welcomeUser = [user];
+        //console.log(this.properties.user);
+      },
+      handleSignOut: function(response) {
+        //console.log("Se quiere cerrar la sesion!");
+        //SE VACIA EL ARRAY QUE ALMACENA EL MENSAJE DE BIENVENIDA
+        this.welcomeUser = [];
+      },
+    });
+  </script>
+</dom-module>
