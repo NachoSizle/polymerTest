@@ -16,10 +16,15 @@
       }
     </style>
 
-    <h1>Google Web Components 1</h1>
+    <h1>Google Map</h1>
 
-    <paper-button raised onclick="localizame()">Localízame</paper-button>
-    <google-map id="googleMapExam" latitude="37.77493" longitude="-122.41942" api-key="AIzaSyA3mhp3Gkwrc85TB8b9kaJxW7zsaq1Dqd0"></google-map>
+    <!-- 
+    NO FUNCIONA LA FUNCIÓN DE GEOLOCALIZACIÓN. 
+    NO SE ASIGNAN LAS COORDENADAS DE LA POSICION AL MAPA PARA PODER FIJARLAS.
+
+    <paper-button raised onclick="localizame()">Localízame</paper-button> 
+    -->
+    <google-map api-key="AIzaSyA3mhp3Gkwrc85TB8b9kaJxW7zsaq1Dqd0"></google-map>
   </template>
   <!-- Creates the element's prototype and registers it -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -33,7 +38,7 @@
           
     function localizame() {
         if (navigator.geolocation) { /* Si el navegador tiene geolocalizacion */
-            navigator.geolocation.getCurrentPosition(coordenadas, errores);
+          navigator.geolocation.getCurrentPosition(coordenadas, errores);
         }else{
             alert('Oops! Tu navegador no soporta geolocalización');
         }
@@ -64,9 +69,11 @@
     function cambiarCoordenadasMapa(){
       console.log("Geolocalizando...");
       var map = $('google-map');
+      //var map = document.querySelector('google-map');
       map.latitude = latitud;
       map.longitude = longitud;
       map.zoom = 15;
+      console.log(map);
     }
 
   </script>

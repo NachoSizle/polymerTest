@@ -1,0 +1,53 @@
+<link rel="import" href="/bower_components/polymer/polymer.html">
+<link rel="import" href="/bower_components/google-chart/google-chart.html">
+
+<dom-module id="my-googleWebComponents3">
+  <!-- Defines the element's style and local DOM -->
+  <template id="mainTemplate">
+    <style>
+      :host {
+        display: block;
+        padding: 16px;
+      }
+    </style>
+
+    <h1>Google Charts</h1>
+
+    <h5>Type: Pie</h5>
+    <google-chart
+      type='pie'
+      options='{"title": "Distribution of days in 2001Q1"}'
+      cols='[{"label":"Month", "type":"string"}, {"label":"Days", "type":"number"}]'
+      rows='[["Jan", 31],["Feb", 28],["Mar", 31]]'>
+    </google-chart>
+     
+    <h5>Type: Bar</h5>
+    <google-chart
+      type='bar'
+      options='{"title": "Distribution of days in 2001Q1"}'
+      cols='[{"label":"Month", "type":"string"}, {"label":"Days", "type":"number"}]'
+       rows='[["Jan", 31],["Feb", 29],["Mar", 31],["Apr", 30],["May", 31],["Jun", 30],["Jul", 31],["Aug", 31],["Sep", 30],["Oct", 31],["Nov", 30],["Dec", 31]]'>
+    </google-chart>
+
+    <h5>Type: Histogram</h5>
+    <google-chart
+      type='histogram'
+      options='{"title": "Distribution of days in 2016"}'
+      cols='[{"label":"Month", "type":"string"}, {"label":"Days", "type":"number"}]'
+      rows='[["Jan", 31],["Feb", 29],["Mar", 31],["Apr", 30],["May", 31],["Jun", 30],["Jul", 31],["Aug", 31],["Sep", 30],["Oct", 31],["Nov", 30],["Dec", 31]]'>
+    </google-chart>
+  </template>
+  <!-- Creates the element's prototype and registers it -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+  <script>
+    Polymer({
+      is: 'my-googleWebComponents3',
+      /*
+      listeners: {
+        //'dom-change': 'domElem',
+      },
+      */
+    });
+  </script>
+</dom-module>

@@ -7,7 +7,9 @@
     "src/my-view3.html",
     "src/my-view404.html",
     "src/my-googleWeb1Ex.html",
-    "src/my-googleWeb2Ex.html"
+    "src/my-googleWeb2Ex.html",
+    "src/my-googleWeb3Ex.html",
+    "src/my-paperEx.html"
   ],
   "sourceGlobs": [
    "src/**/*",
