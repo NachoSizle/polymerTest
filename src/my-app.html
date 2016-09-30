@@ -1,13 +1,3 @@
-<!--
-@license
-Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/app-layout/app-drawer/app-drawer.html">
 <link rel="import" href="../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
@@ -75,10 +65,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <app-drawer>
         <app-toolbar>Menu</app-toolbar>
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-          <a name="googleWeb1Ex" href="/googleWeb1Ex">Google Web Components 1</a>
-          <a name="googleWeb2Ex" href="/googleWeb2Ex">Google Web Components 2</a>
-          <a name="googleWeb3Ex" href="/googleWeb3Ex">Google Web Components 3</a>
-          <a name="paperEx" href="/paperEx">Paper Components</a>
+          <a name="googleWeb1-Ex" href="/googleWeb1-Ex">Google Web Components 1</a>
+          <a name="googleWeb2-Ex" href="/googleWeb2-Ex">Google Web Components 2</a>
+          <a name="googleWeb3-Ex" href="/googleWeb3-Ex">Google Web Components 3</a>
+          <a name="paper-Ex" href="/paper-Ex">Paper Components</a>
         </iron-selector>
       </app-drawer>
 
@@ -99,11 +89,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             attr-for-selected="name"
             fallback-selection="view404"
             role="main">
-          <my-googleWeb1Ex name="googleWeb1Ex"></my-googleWeb1Ex>
-          <my-googleWeb2Ex name="googleWeb2Ex"></my-googleWeb2Ex>
-          <my-googleWeb3Ex name="googleWeb3Ex"></my-googleWeb3Ex>
-          <my-paperEx name="paperEx"></my-paperEx>
-          <my-view404 name="view404"></my-view404>
+          <googleWeb1-Ex name="googleWeb1-Ex"></googleWeb1-Ex>
+          <googleWeb2-Ex name="googleWeb2-Ex"></googleWeb2-Ex>
+          <googleWeb3-Ex name="googleWeb3-Ex"></googleWeb3-Ex>
+          <paper-Ex name="paper-Ex"></paper-Ex>
+          <view404 name="view404"></view404>
         </iron-pages>
       </app-header-layout>
     </app-drawer-layout>
@@ -126,12 +116,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       ],
 
       _routePageChanged: function(page) {
-        this.page = page || 'googleWeb1Ex';
+        this.page = page || 'googleWeb1-Ex';
       },
 
       _pageChanged: function(page) {
         // Load page import on demand. Show 404 page if fails
-        var resolvedPageUrl = this.resolveUrl('my-' + page + '.html');
+        var resolvedPageUrl = this.resolveUrl(page + '.html');
         this.importHref(resolvedPageUrl, null, this._showPage404, true);
       },
 

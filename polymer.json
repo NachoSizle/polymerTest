@@ -2,14 +2,11 @@
   "entrypoint": "index.html",
   "shell": "src/my-app.html",
   "fragments": [
-    "src/my-view1.html",
-    "src/my-view2.html",
-    "src/my-view3.html",
-    "src/my-view404.html",
-    "src/my-googleWeb1Ex.html",
-    "src/my-googleWeb2Ex.html",
-    "src/my-googleWeb3Ex.html",
-    "src/my-paperEx.html"
+    "src/view404.html",
+    "src/googleWeb1Ex.html",
+    "src/googleWeb2Ex.html",
+    "src/googleWeb3Ex.html",
+    "src/paperEx.html"
   ],
   "sourceGlobs": [
    "src/**/*",

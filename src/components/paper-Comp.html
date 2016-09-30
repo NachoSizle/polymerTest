@@ -1,13 +1,15 @@
 <link rel="import" href="/bower_components/polymer/polymer.html">
+
 <link rel="import" href="/bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
 <link rel="import" href="/bower_components/paper-listbox/paper-listbox.html">
 <link rel="import" href="/bower_components/paper-item/paper-item.html">
+<link rel="import" href="/bower_components/iron-dropdown/iron-dropdown.html">
 
 <link rel="import" href="/bower_components/paper-dialog-scrollable/paper-dialog-scrollable.html">
 <link rel="import" href="/bower_components/paper-dialog/paper-dialog.html">
 <link rel="import" href="/bower_components/paper-button/paper-button.html">
 
-<dom-module id="my-paper">
+<dom-module id="paper-Comp">
   <!-- Defines the element's style and local DOM -->
   <template id="mainTemplate">
     <style>
@@ -43,7 +45,7 @@
 
     <h1>Paper Dropdown</h1>
 
-    <paper-dropdown-menu label="Dinosaurs">
+    <paper-dropdown-menu horizontal-align="right" vertical-align="top" label="Dinosaurs">
       <paper-listbox class="dropdown-content">
         <paper-item>allosaurus</paper-item>
         <paper-item>brontosaurus</paper-item>
@@ -52,6 +54,7 @@
       </paper-listbox>
     </paper-dropdown-menu>
 
+    
     <h1>Paper Dialog Scrollable</h1>
     <h3>Paper Dialog Scrollable empotrado en el div</h3>
     <section>
@@ -229,7 +232,7 @@
 
   <script>
     Polymer({
-      is: 'my-paper',
+      is: 'paper-Comp',
       
       listeners: {
         'iron-select': 'selecElem',
