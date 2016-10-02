@@ -1,0 +1,28 @@
+
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="components/dom-repeat-component.html">
+
+
+
+<dom-module id="DomRepeat-Example">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+    </style>
+        
+        <dom-repeat-component></dom-repeat-component>
+    
+  </template>
+
+  <script>
+    Polymer({
+      is: 'DomRepeat-Example'
+    });
+  </script>
+</dom-module>
